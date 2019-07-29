@@ -62,9 +62,17 @@ export default class BaseMap {
             .append('path')
             .attr('class', 'map-path')
             .attr('d', this.path)
-            .attr("stroke-width", 1)
+        this.mapGroup.selectAll('.path-group')
+            .append('text')
+            .text(d=>{
+                return d.properties.name
+            })
+            .attr('transform', d=>{
+                if(!d.properties.center) return
+                return `translate(${this.projection(d.properties.center)}),scale(0.8)`
+            })
     }
-    // 缩放
+    // 缩放
     zoomed() {
         let t = d3.event.transform;
         this.mainGroup.attr("transform", t);

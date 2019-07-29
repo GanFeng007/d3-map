@@ -33,7 +33,10 @@ export default {
         .map-path{
             fill: #f9f9f9;
             stroke: #ddd;
-            stroke-width: 1px;
+            stroke-width: 0.5px;
+            text{
+                fill: gray;
+            }
         }
     }
 }</style>
